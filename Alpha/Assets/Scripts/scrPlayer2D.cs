@@ -35,8 +35,16 @@ public class scrPlayer2D : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Olha que dialogo merda");
+                FindObjectOfType<scrDialogueTrigger>().TriggerDialogue();
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Inicial"))
+        {
+            FindObjectOfType<scrDialogueTrigger>().TriggerDialogue();
         }
     }
 }

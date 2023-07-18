@@ -8,6 +8,7 @@ public class scrDialogueSystem : MonoBehaviour
     public Queue<string> sentences;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
+    public Animator animBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,8 @@ public class scrDialogueSystem : MonoBehaviour
 
         nameText.text = dialogue.name;
         sentences.Clear();
+
+        animBox.SetBool("dialog", true);
 
         foreach (string sentence in dialogue.sentences)
         {
@@ -62,6 +65,6 @@ public class scrDialogueSystem : MonoBehaviour
 
     void EndDialogue() 
     {
-        Debug.Log("Fim");
+        animBox.SetBool("dialog", false);
     }
 }
