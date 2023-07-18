@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scrPlayer : MonoBehaviour
 {
@@ -63,6 +64,7 @@ public class scrPlayer : MonoBehaviour
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+    public bool proximaFase;
 
     private void Update()
     {
@@ -78,13 +80,22 @@ public class scrPlayer : MonoBehaviour
 
             controller.Move(direction * speed * Time.deltaTime);
         }
+
+        if (proximaFase)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene("Entrada-Fabrica");
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Door"))
         {
-            Debug.Log("Proxima fase");
+            proximaFase = true;
+            Debug.Log("entrou na porta");
         }
     }
 }
