@@ -29,6 +29,14 @@ public class scrPlayer2D : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Inicial"))
+        {
+            FindObjectOfType<scrDialogueTrigger>().TriggerDialogue();
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Dialog"))
@@ -37,14 +45,6 @@ public class scrPlayer2D : MonoBehaviour
             {
                 FindObjectOfType<scrDialogueTrigger>().TriggerDialogue();
             }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Inicial"))
-        {
-            FindObjectOfType<scrDialogueTrigger>().TriggerDialogue();
         }
     }
 }
