@@ -28,23 +28,4 @@ public class scrPlayer2D : MonoBehaviour
             transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Inicial"))
-        {
-            FindObjectOfType<scrDialogueTrigger>().TriggerDialogue();
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Dialog"))
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                FindObjectOfType<scrDialogueTrigger>().TriggerDialogue();
-            }
-        }
-    }
 }

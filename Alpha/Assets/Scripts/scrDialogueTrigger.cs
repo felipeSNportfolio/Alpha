@@ -11,13 +11,13 @@ public class scrDialogueTrigger : MonoBehaviour
         FindObjectOfType<scrDialogueSystem>().StartDialogue(dialogue);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            TriggerDialogue();
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        TriggerDialogue();
+    //    }
+    //}
 
     private void OnTriggerStay(Collider other)
     {

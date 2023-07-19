@@ -9,6 +9,7 @@ public class scrDialogueSystem : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
     public Animator animBox;
+    public bool endDialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class scrDialogueSystem : MonoBehaviour
     public void StartDialogue(scrDialogue dialogue) 
     {
         Debug.Log("Conversar com " + dialogue.name);
+        endDialog = false;
 
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -66,5 +68,6 @@ public class scrDialogueSystem : MonoBehaviour
     void EndDialogue() 
     {
         animBox.SetBool("dialog", false);
+        endDialog = true;
     }
 }
